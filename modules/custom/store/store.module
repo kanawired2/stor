@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains store.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function store_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the store module.
+    case 'help.page.store':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Coza Store - Custom module.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function store_theme() {
+  return [
+    'store' => [
+      'render element' => 'children',
+    ],
+  ];
+}
